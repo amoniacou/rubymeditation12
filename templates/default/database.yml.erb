@@ -1,0 +1,9 @@
+production:
+  adapter:  postgresql
+  host:     localhost
+  encoding: unicode
+  database: <%= @db_name  %>
+  pool:     <%= @db_pool || 10 %>
+  username: <%= @db_user %>
+  password: <%= @db_password %>
+  template: template0

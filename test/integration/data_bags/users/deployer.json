@@ -1,0 +1,9 @@
+{
+  "id": "deployer",
+  "username": "deployer",
+  "comment": "Deployer user",
+  "home": "/home/deployer",
+  "shell": "\/bin\/bash",
+  "groups": [ "deployer" ],
+  "ssh_keys": []
+}

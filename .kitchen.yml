@@ -1,0 +1,35 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: ubuntu-14.04
+
+suites:
+  - name: default
+    data_bags_path: "test/integration/data_bags"
+    run_list:
+      - recipe[rm-test::default]
+    attributes:
+      authorization:
+        sudo:
+          users:
+            - deployer
+            - vagrant
+          passwordless: true
+      postgresql:
+        enable_pgdg_apt: true
+        version: '9.5'
+        dir: '/etc/postgresql/9.5/main'
+        server: 
+          service_name: 'postgresql'
+          packages: ['postgresql-9.5']
+        client:
+          packages: ['postgresql-client-9.5', 'libpq-dev']
+        contrib:
+          packages: ['postgresql-contrib-9.5']
+        password:
+          postgres: "changeme"
